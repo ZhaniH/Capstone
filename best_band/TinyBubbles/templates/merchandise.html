@@ -1,0 +1,22 @@
+{% extends 'TinyBubbles/base.html' %}
+
+{% block title %}Merchandise{% endblock %}
+
+{% block content %}
+<h1>Band Merchandise</h1>
+<div class="merch-grid">
+    {% for item in merch_items %}
+    <div class="merch-item">
+        <img src="{{ item.image.url }}" alt="{{ item.name }}">
+        <h3>{{ item.name }}</h3>
+        <p>${{ item.price }}</p>
+        <p>{{ item.description }}</p>
+        {% if user.is_authenticated %}
+            <button>Add to Cart</button>
+        {% else %}
+            <p><a href="{% url 'login' %}">Login</a> to purchase</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "TinyBubbles/base.html" %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<h1>About Tiny Bubbles</h1>
+<div class="row mt-4">
+    <div class="col-md-6">
+        {% comment %} <img src="{% static'images/band.jpg' %}" alt="Tiny Bubbles Band" class="img-fluid rounded"> {% endcomment %}
+    </div>
+    <div class="col-md-6">
+        <p>Tiny Bubbles is an indie pop band formed in 2020, known for their dreamy melodies and captivating lyrics.</p>
+        <p>The band consists of four members:</p>
+        <ul>
+            <li>Alex - Vocals/Guitar</li>
+            <li>Jamie - Bass</li>
+            <li>Taylor - Drums</li>
+            <li>Morgan - Keys</li>
+        </ul>
+        <p>With two studio albums and multiple singles, Tiny Bubbles has been making waves in the music scene.</p>
+    </div>
+</div>
+{% endblock %}

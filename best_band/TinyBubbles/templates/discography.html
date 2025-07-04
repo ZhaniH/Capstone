@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Discography{% endblock %}
+
+{% block content %}
+<h1>Our Albums</h1>
+<div class="albums">
+    {% for album in albums %}
+    <div class="album">
+        <img src="{{ album.cover_image.url }}" alt="{{ album.title }}">
+        <h2>{{ album.title }}</h2>
+        <p>Released: {{ album.release_date }}</p>
+        <p>{{ album.description }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

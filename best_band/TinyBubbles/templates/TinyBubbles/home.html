@@ -1,0 +1,38 @@
+{% extends "TinyBubbles/base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="jumbotron bg-light p-5 rounded">
+    <h1 class="display-4">Welcome to Tiny Bubbles!</h1>
+    <p class="lead">The most exciting new band in the indie pop scene.</p>
+    <hr class="my-4">
+    <p>Check out our latest music and tour dates!</p>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Latest Single</h2>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">"Ocean Eyes"</h5>
+                <p class="card-text">Our newest release - available now on all platforms!</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h2>Next Show</h2>
+        {% if next_show %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ next_show.venue }}</h5>
+                <p class="card-text">
+                    {{ next_show.location }}<br>
+                    {{ next_show.date|date:"F j, Y" }}
+                </p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
