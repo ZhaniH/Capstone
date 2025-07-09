@@ -6,20 +6,59 @@ from .forms import ContactForm
 from django.contrib.auth.decorators import login_required
 
 def home(request):
+    """Home Page for TinyBubbles band
+
+    Args:
+        request (_type_): Http request
+
+    Returns:
+        _type_: Home.html
+    """
     return render(request, 'TinyBubbles/home.html')
 
 def about(request):
+    """About Band details
+
+    Args:
+        request (_type_): http request
+
+    Returns:
+        _type_: About.html
+    """
     return render(request, 'TinyBubbles/about.html')
 
 @login_required
 def music(request):
+    """ Merchandise login 
+
+    Args:
+        request (_type_): Http request
+
+    Returns:
+        _type_: music.html
+    """
     return render(request, 'merchandise.html')
 
 def tour_dates(request):
+    """Tour dates page
+
+    Args:
+        request (_type_): http request
+
+    Returns:
+        _type_: tour dates html
+    """
     dates = TourDate.objects.all().order_by('date')
     return render(request, 'TinyBubbles/tour_dates.html', {'tour_dates': dates})
 
 def contact(request):
+    """Contact us form
+
+    Args:
+        request (_type_): http request
+    Returns:
+        _type_: Contact.html
+    """
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -35,6 +74,14 @@ def contact(request):
     return render(request, 'TinyBubbles/contact.html', {'form': form})
 
 def login_view(request):
+    """Login page
+
+    Args:
+        request (_type_): http request
+
+    Returns:
+        _type_: Contact.html
+    """
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -45,10 +92,26 @@ def login_view(request):
     return render(request, 'TinyBubbles/login.html')
 
 def logout_view(request):
+    """Logout page
+
+    Args:
+        request (_type_): http request
+
+    Returns:
+        _type_: logout.html
+    """
     logout(request)
     return redirect('home')
 
 def register_view(request):
+    """New user registration
+
+    Args:
+        request (_type_): http request
+
+    Returns:
+        _type_: logout.html
+    """
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():

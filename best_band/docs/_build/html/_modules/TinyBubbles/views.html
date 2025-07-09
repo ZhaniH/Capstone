@@ -79,12 +79,28 @@
 <div class="viewcode-block" id="home">
 <a class="viewcode-back" href="../../TinyBubbles.html#TinyBubbles.views.home">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">home</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Home Page for TinyBubbles band</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        request (_type_): Http request</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        _type_: Home.html</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;TinyBubbles/home.html&#39;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="about">
 <a class="viewcode-back" href="../../TinyBubbles.html#TinyBubbles.views.about">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">about</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;About Band details</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        request (_type_): http request</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        _type_: About.html</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;TinyBubbles/about.html&#39;</span><span class="p">)</span></div>
 
 
@@ -92,12 +108,28 @@
 <a class="viewcode-back" href="../../TinyBubbles.html#TinyBubbles.views.music">[docs]</a>
 <span class="nd">@login_required</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">music</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Merchandise login </span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        request (_type_): Http request</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        _type_: music.html</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;merchandise.html&#39;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="tour_dates">
 <a class="viewcode-back" href="../../TinyBubbles.html#TinyBubbles.views.tour_dates">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">tour_dates</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Tour dates page</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        request (_type_): http request</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        _type_: tour dates html</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">dates</span> <span class="o">=</span> <span class="n">TourDate</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;TinyBubbles/tour_dates.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;tour_dates&#39;</span><span class="p">:</span> <span class="n">dates</span><span class="p">})</span></div>
 
@@ -105,6 +137,13 @@
 <div class="viewcode-block" id="contact">
 <a class="viewcode-back" href="../../TinyBubbles.html#TinyBubbles.views.contact">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">contact</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Contact us form</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        request (_type_): http request</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        _type_: Contact.html</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
         <span class="n">form</span> <span class="o">=</span> <span class="n">ContactForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
@@ -123,6 +162,14 @@
 <div class="viewcode-block" id="login_view">
 <a class="viewcode-back" href="../../TinyBubbles.html#TinyBubbles.views.login_view">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">login_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Login page</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        request (_type_): http request</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        _type_: Contact.html</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
         <span class="n">username</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span>
         <span class="n">password</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span>
@@ -136,6 +183,14 @@
 <div class="viewcode-block" id="logout_view">
 <a class="viewcode-back" href="../../TinyBubbles.html#TinyBubbles.views.logout_view">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">logout_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Logout page</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        request (_type_): http request</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        _type_: logout.html</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">logout</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">)</span></div>
 
@@ -143,6 +198,14 @@
 <div class="viewcode-block" id="register_view">
 <a class="viewcode-back" href="../../TinyBubbles.html#TinyBubbles.views.register_view">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">register_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;New user registration</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        request (_type_): http request</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        _type_: logout.html</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
         <span class="n">form</span> <span class="o">=</span> <span class="n">UserCreationForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
